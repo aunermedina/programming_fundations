@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+    <h1>Pizza Medina</h1>
+    <p>Captura los datos de la pizza ordenada.</p>
+    <form name="pizzagate" onsubmit="return calculate()">
+        <label for="cupones">Elige un cupón:</label>
+        <select id="cupones" name="cupones">
+          <option value="sc">Sin Cupón</option>
+          <option value="10">10%</option>
+          <option value="20">20%</option>
+        </select> 
+        <br>
+        <label for="pizzas">Elige tamaño de pizza:</label>
+        <select id="pizzas" name="pizzas">
+          <option value="45">Chica - $45</option>
+          <option value="90">Mediana - $90</option>
+          <option value="115">Grande - $115</option>
+          <option value="140">Familiar - $140</option>
+        </select> 
+        <br>
+        <input type="submit" value="Total">
+    </form>
+    <script>
+        function calculate() {
+            // extraemos el valor del cupon
+            var cupon = document.forms['pizzagate']['cupones'].value; 
+            // extraemos el valor de la pizza
+            var pizza = document.forms['pizzagate']['pizzas'].value;
+            if (cupon == '10') {  
+                // cupón de 10%
+                var total = pizza - (pizza * 0.10)
+                alert('Cupón del 10%, valor de la pizza es $' + pizza + ', para un total de: $' + total)
+            } else if (cupon == '20') {
+                // cupon de 20%
+                var total = pizza - (pizza * 0.20)
+                alert('Cupón del 20%, valor de la pizza es $' + pizza + ', para un total de: $' + total)
+            } else {
+                // el cliente no tiene cupón.
+                alert('Sin cupón y el precio total es: $' + pizza)
+            }
+        }
+    </script>
+</body>
+</html>
