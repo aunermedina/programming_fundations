@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta autor="Carlos Auner Medina Montejano">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <H1>Calculadora Básica</H1>
+    <p>Selecciona la operación a realizar del menú:</p>
+    <br>
+    <form name="fcalculadora" onsubmit="calcular()">
+        <label for="operacion">Operación: </label>
+        <select id="operacion" name="operacion" onchange="op(this.value)" required>
+            <option selected value=""></option>
+            <option value="+">Suma</option>
+            <option value="-">Resta</option>
+            <option value="*">Multiplicación</option>
+            <option value="/">División</option>
+        </select>
+        <br>
+        <br>
+        <label for="num1">Primer valor:</label><br>
+        <input type="number" id="num1" name="num1" min="0" required>
+        <p id="ops"></p>
+        <label for="num2">Segundo valor:</label><br>
+        <input type="number" id="num2" name="num2" min="0" required><br><br>
+        <input type="submit" value="Calcular">
+    </form>
+    <script>
+        function op(operador) {
+            // asignar el valor seleccionado al elemento de parrafo
+            document.getElementById('ops').innerHTML = operador;
+        }
+
+        function calcular() {
+            // funcion para calcular operación
+            // Obtenemos valores iniciales
+            var op = document.forms['fcalculadora']['operacion'].value;
+            var n1 = parseInt(document.forms['fcalculadora']['num1'].value);
+            var n2 = parseInt(document.forms['fcalculadora']['num2'].value);
+            var result = 0;
+            
+            // se realiza la operación acorde a la selección
+            if (op == '+') {
+                result = n1 + n2;
+                alert('El resultado es:\n\n' + result);
+            } else if (op == '-') {
+                result = n1 - n2;
+                alert('El resultado es:\n\n' + result);
+            } else if (op == '*') {
+                result = n1 * n2;
+                alert('El resultado es:\n\n' + result);
+            } else {
+                if (n2 == 0) {
+                        alert('No se puede dividir entre cero.');
+                    } else {
+                        result = n1 / n2;
+                        alert('El resultado es:\n\n' + result);
+                    }
+            } 
+
+        }
+        
+    </script>
+</body>
+
+</html>
