@@ -29,7 +29,7 @@ var cafePos = lista_compras.indexOf('café'); // obtenemos el indice del element
 lista_compras[cafePos] = 'café descafeinado'; // sustituimos con base al indice
 
 console.log('LISTA CON ELEMENTOS SUSTITUIDOS:');
-lista_compras.forEach(function(elemento, indice, array) {
-    lista += elemento + ", "; // concatenamos el elemento para mostrar solo una linea
-})
+for (let index = 0; index < lista_compras.length; index++) {
+    lista += lista_compras[index] + ", "; // concatenamos el elemento para mostrar solo una linea
+}
 console.log(lista); // imprime lista en consola
